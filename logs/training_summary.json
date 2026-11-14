@@ -1,0 +1,20 @@
+{
+  "baseline": {
+    "best_epoch": 15,
+    "best_val_miou": 0.5413967158515065,
+    "epochs_run": 30,
+    "stopped_early": true,
+    "train_time_s": 34.4,
+    "params": 7763173,
+    "checkpoint": "checkpoints\\baseline_best.pt"
+  },
+  "dilated": {
+    "best_epoch": 41,
+    "best_val_miou": 0.5671642015102334,
+    "epochs_run": 56,
+    "stopped_early": true,
+    "train_time_s": 68.9,
+    "params": 8026341,
+    "checkpoint": "checkpoints\\dilated_best.pt"
+  }
+}

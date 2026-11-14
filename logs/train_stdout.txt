@@ -1,0 +1,126 @@
+block           baseline     dilated       delta
+------------------------------------------------
+enc1              10,208      10,208          +0
+enc2              55,552      55,552          +0
+enc3             221,696     221,696          +0
+enc4             885,760     885,760          +0
+bottleneck     3,540,992   3,804,160    +263,168
+up4            2,295,040   2,295,040          +0
+up3              574,080     574,080          +0
+up2              143,680     143,680          +0
+up1               36,000      36,000          +0
+head                 165         165          +0
+------------------------------------------------
+TOTAL          7,763,173   8,026,341    +263,168
+
+=== baseline: 7,763,173 params on cuda ===
+baseline ep  1 lr=1.00e-03 train_loss=1.3284 val_loss=1.3590 val_mIoU=0.2439 2.4s *
+baseline ep  2 lr=9.99e-04 train_loss=1.1241 val_loss=1.0074 val_mIoU=0.3103 1.0s *
+baseline ep  3 lr=9.97e-04 train_loss=0.9589 val_loss=1.0146 val_mIoU=0.3082 1.0s
+baseline ep  4 lr=9.94e-04 train_loss=0.9381 val_loss=0.9668 val_mIoU=0.3473 1.0s *
+baseline ep  5 lr=9.89e-04 train_loss=0.9291 val_loss=0.7787 val_mIoU=0.4216 1.0s *
+baseline ep  6 lr=9.83e-04 train_loss=0.9311 val_loss=0.6640 val_mIoU=0.4466 1.0s *
+baseline ep  7 lr=9.76e-04 train_loss=0.7794 val_loss=0.7587 val_mIoU=0.4261 1.0s
+baseline ep  8 lr=9.67e-04 train_loss=0.7892 val_loss=0.6572 val_mIoU=0.4834 1.0s *
+baseline ep  9 lr=9.57e-04 train_loss=0.7805 val_loss=0.7745 val_mIoU=0.4933 1.0s *
+baseline ep 10 lr=9.46e-04 train_loss=0.7857 val_loss=0.6366 val_mIoU=0.5287 1.0s *
+baseline ep 11 lr=9.34e-04 train_loss=0.7748 val_loss=0.6314 val_mIoU=0.5113 1.0s
+baseline ep 12 lr=9.20e-04 train_loss=0.7525 val_loss=0.6984 val_mIoU=0.5077 1.0s
+baseline ep 13 lr=9.05e-04 train_loss=0.7596 val_loss=0.6161 val_mIoU=0.5104 1.0s
+baseline ep 14 lr=8.90e-04 train_loss=0.7000 val_loss=0.6539 val_mIoU=0.5167 1.0s
+baseline ep 15 lr=8.73e-04 train_loss=0.6756 val_loss=0.5745 val_mIoU=0.5414 1.2s *
+baseline ep 16 lr=8.55e-04 train_loss=0.7204 val_loss=0.5796 val_mIoU=0.5349 1.1s
+baseline ep 17 lr=8.36e-04 train_loss=0.6483 val_loss=0.5814 val_mIoU=0.5059 1.2s
+baseline ep 18 lr=8.17e-04 train_loss=0.6554 val_loss=0.5535 val_mIoU=0.5325 1.2s
+baseline ep 19 lr=7.96e-04 train_loss=0.6728 val_loss=0.5889 val_mIoU=0.5227 1.1s
+baseline ep 20 lr=7.75e-04 train_loss=0.6790 val_loss=0.5392 val_mIoU=0.5250 1.1s
+baseline ep 21 lr=7.53e-04 train_loss=0.6585 val_loss=0.5967 val_mIoU=0.5231 1.1s
+baseline ep 22 lr=7.30e-04 train_loss=0.6346 val_loss=0.5357 val_mIoU=0.5291 1.1s
+baseline ep 23 lr=7.06e-04 train_loss=0.6349 val_loss=0.5416 val_mIoU=0.5330 1.1s
+baseline ep 24 lr=6.82e-04 train_loss=0.6340 val_loss=0.6320 val_mIoU=0.4929 1.1s
+baseline ep 25 lr=6.58e-04 train_loss=0.6419 val_loss=0.5422 val_mIoU=0.5379 1.1s
+baseline ep 26 lr=6.33e-04 train_loss=0.6750 val_loss=0.5832 val_mIoU=0.5306 1.1s
+baseline ep 27 lr=6.08e-04 train_loss=0.5799 val_loss=0.5911 val_mIoU=0.5276 1.1s
+baseline ep 28 lr=5.82e-04 train_loss=0.6351 val_loss=0.5411 val_mIoU=0.5408 1.1s
+baseline ep 29 lr=5.57e-04 train_loss=0.6204 val_loss=0.5495 val_mIoU=0.4991 1.1s
+baseline ep 30 lr=5.31e-04 train_loss=0.6414 val_loss=0.5293 val_mIoU=0.5405 1.1s
+baseline: early stop at epoch 30 (best epoch 15, val mIoU 0.5414)
+
+=== dilated: 8,026,341 params on cuda ===
+dilated ep  1 lr=1.00e-03 train_loss=1.3800 val_loss=1.3682 val_mIoU=0.3419 1.5s *
+dilated ep  2 lr=9.99e-04 train_loss=1.1322 val_loss=1.0137 val_mIoU=0.3383 1.1s
+dilated ep  3 lr=9.97e-04 train_loss=0.9813 val_loss=0.9479 val_mIoU=0.3554 1.1s *
+dilated ep  4 lr=9.94e-04 train_loss=0.9475 val_loss=0.8774 val_mIoU=0.3490 1.1s
+dilated ep  5 lr=9.89e-04 train_loss=0.9220 val_loss=0.7622 val_mIoU=0.4428 1.2s *
+dilated ep  6 lr=9.83e-04 train_loss=0.9483 val_loss=0.6843 val_mIoU=0.4477 1.2s *
+dilated ep  7 lr=9.76e-04 train_loss=0.7781 val_loss=0.6510 val_mIoU=0.4700 1.2s *
+dilated ep  8 lr=9.67e-04 train_loss=0.7790 val_loss=0.6503 val_mIoU=0.5007 1.1s *
+dilated ep  9 lr=9.57e-04 train_loss=0.7809 val_loss=0.6572 val_mIoU=0.5129 1.1s *
+dilated ep 10 lr=9.46e-04 train_loss=0.7676 val_loss=0.5974 val_mIoU=0.5433 1.2s *
+dilated ep 11 lr=9.34e-04 train_loss=0.7678 val_loss=0.6380 val_mIoU=0.5124 1.3s
+dilated ep 12 lr=9.20e-04 train_loss=0.7386 val_loss=0.6373 val_mIoU=0.5122 1.2s
+dilated ep 13 lr=9.05e-04 train_loss=0.7448 val_loss=0.5965 val_mIoU=0.5302 1.4s
+dilated ep 14 lr=8.90e-04 train_loss=0.6935 val_loss=0.6230 val_mIoU=0.5444 1.3s *
+dilated ep 15 lr=8.73e-04 train_loss=0.6709 val_loss=0.5738 val_mIoU=0.5413 1.2s
+dilated ep 16 lr=8.55e-04 train_loss=0.7115 val_loss=0.6037 val_mIoU=0.5046 1.2s
+dilated ep 17 lr=8.36e-04 train_loss=0.6283 val_loss=0.5840 val_mIoU=0.5319 1.2s
+dilated ep 18 lr=8.17e-04 train_loss=0.6496 val_loss=0.6053 val_mIoU=0.5118 1.2s
+dilated ep 19 lr=7.96e-04 train_loss=0.6528 val_loss=0.6074 val_mIoU=0.5363 1.2s
+dilated ep 20 lr=7.75e-04 train_loss=0.6777 val_loss=0.5409 val_mIoU=0.5342 1.3s
+dilated ep 21 lr=7.53e-04 train_loss=0.6515 val_loss=0.6206 val_mIoU=0.5126 1.3s
+dilated ep 22 lr=7.30e-04 train_loss=0.6416 val_loss=0.5376 val_mIoU=0.5377 1.2s
+dilated ep 23 lr=7.06e-04 train_loss=0.6251 val_loss=0.5994 val_mIoU=0.4983 1.3s
+dilated ep 24 lr=6.82e-04 train_loss=0.6427 val_loss=0.6892 val_mIoU=0.4881 1.3s
+dilated ep 25 lr=6.58e-04 train_loss=0.6326 val_loss=0.5294 val_mIoU=0.5483 1.2s *
+dilated ep 26 lr=6.33e-04 train_loss=0.6767 val_loss=0.5602 val_mIoU=0.5142 1.2s
+dilated ep 27 lr=6.08e-04 train_loss=0.5830 val_loss=0.5590 val_mIoU=0.5261 1.2s
+dilated ep 28 lr=5.82e-04 train_loss=0.6366 val_loss=0.5307 val_mIoU=0.5467 1.2s
+dilated ep 29 lr=5.57e-04 train_loss=0.6047 val_loss=0.5364 val_mIoU=0.5454 1.2s
+dilated ep 30 lr=5.31e-04 train_loss=0.6365 val_loss=0.6548 val_mIoU=0.4999 1.2s
+dilated ep 31 lr=5.05e-04 train_loss=0.5931 val_loss=0.6102 val_mIoU=0.4994 1.2s
+dilated ep 32 lr=4.79e-04 train_loss=0.6360 val_loss=0.5175 val_mIoU=0.5542 1.3s *
+dilated ep 33 lr=4.53e-04 train_loss=0.6157 val_loss=0.5502 val_mIoU=0.5555 1.2s *
+dilated ep 34 lr=4.28e-04 train_loss=0.6068 val_loss=0.5648 val_mIoU=0.5209 1.2s
+dilated ep 35 lr=4.02e-04 train_loss=0.6352 val_loss=0.5755 val_mIoU=0.4912 1.2s
+dilated ep 36 lr=3.77e-04 train_loss=0.5948 val_loss=0.5478 val_mIoU=0.5393 1.2s
+dilated ep 37 lr=3.52e-04 train_loss=0.5971 val_loss=0.5483 val_mIoU=0.5386 1.2s
+dilated ep 38 lr=3.28e-04 train_loss=0.5709 val_loss=0.5428 val_mIoU=0.5530 1.2s
+dilated ep 39 lr=3.04e-04 train_loss=0.6019 val_loss=0.5005 val_mIoU=0.5517 1.1s
+dilated ep 40 lr=2.80e-04 train_loss=0.5727 val_loss=0.5321 val_mIoU=0.5446 1.2s
+dilated ep 41 lr=2.58e-04 train_loss=0.5587 val_loss=0.5388 val_mIoU=0.5672 1.2s *
+dilated ep 42 lr=2.35e-04 train_loss=0.5839 val_loss=0.5199 val_mIoU=0.5571 1.1s
+dilated ep 43 lr=2.14e-04 train_loss=0.6013 val_loss=0.5582 val_mIoU=0.5116 1.2s
+dilated ep 44 lr=1.93e-04 train_loss=0.5589 val_loss=0.5294 val_mIoU=0.5542 1.1s
+dilated ep 45 lr=1.74e-04 train_loss=0.5528 val_loss=0.5320 val_mIoU=0.5634 1.1s
+dilated ep 46 lr=1.55e-04 train_loss=0.5923 val_loss=0.5284 val_mIoU=0.5543 1.2s
+dilated ep 47 lr=1.37e-04 train_loss=0.5426 val_loss=0.5122 val_mIoU=0.5545 1.2s
+dilated ep 48 lr=1.20e-04 train_loss=0.5692 val_loss=0.5241 val_mIoU=0.5500 1.2s
+dilated ep 49 lr=1.05e-04 train_loss=0.6046 val_loss=0.5260 val_mIoU=0.5494 1.2s
+dilated ep 50 lr=8.99e-05 train_loss=0.5893 val_loss=0.5131 val_mIoU=0.5544 1.2s
+dilated ep 51 lr=7.63e-05 train_loss=0.5380 val_loss=0.5067 val_mIoU=0.5546 1.1s
+dilated ep 52 lr=6.40e-05 train_loss=0.5721 val_loss=0.5043 val_mIoU=0.5607 1.2s
+dilated ep 53 lr=5.28e-05 train_loss=0.5724 val_loss=0.5044 val_mIoU=0.5641 1.3s
+dilated ep 54 lr=4.29e-05 train_loss=0.5596 val_loss=0.5018 val_mIoU=0.5594 1.2s
+dilated ep 55 lr=3.42e-05 train_loss=0.5566 val_loss=0.5023 val_mIoU=0.5610 1.3s
+dilated ep 56 lr=2.69e-05 train_loss=0.5428 val_loss=0.5057 val_mIoU=0.5588 1.2s
+dilated: early stop at epoch 56 (best epoch 41, val mIoU 0.5672)
+{
+  "baseline": {
+    "best_epoch": 15,
+    "best_val_miou": 0.5413967158515065,
+    "epochs_run": 30,
+    "stopped_early": true,
+    "train_time_s": 34.4,
+    "params": 7763173,
+    "checkpoint": "checkpoints\\baseline_best.pt"
+  },
+  "dilated": {
+    "best_epoch": 41,
+    "best_val_miou": 0.5671642015102334,
+    "epochs_run": 56,
+    "stopped_early": true,
+    "train_time_s": 68.9,
+    "params": 8026341,
+    "checkpoint": "checkpoints\\dilated_best.pt"
+  }
+}

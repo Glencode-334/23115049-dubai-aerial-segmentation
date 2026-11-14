@@ -1,0 +1,14 @@
+Test-set GT pixel counts (256x256):
+  Building      126,105  (16.28%)
+  Land          422,821  (54.59%)
+  Road          102,733  (13.26%)
+  Vegetation     41,843  ( 5.40%)
+  Water          81,060  (10.47%)
+  ignored        11,870
+baseline: test mIoU=0.4695 params=7,763,173
+dilated: test mIoU=0.5077 params=8,026,341
+baseline: latency median-of-medians=12.508 ms; per-repeat medians=[12.98, 12.92, 12.51, 9.55, 11.89]; pooled mean 12.665 +/- 4.018 ms
+dilated: latency median-of-medians=15.265 ms; per-repeat medians=[15.51, 15.86, 15.27, 4.78, 12.0]; pooled mean 13.395 +/- 5.335 ms
+qualitative (gain): ['Tile2_part_006', 'Tile1_part_002', 'Tile7_part_001']
+failure cases: ['Tile1_part_004', 'Tile4_part_005', 'Tile4_part_009']
+saved results/metrics_summary.json, per_class_iou.csv, per_image_miou.csv and figures

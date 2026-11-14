@@ -1,0 +1,137 @@
+{
+  "seed": 42,
+  "deterministic": {
+    "cudnn.deterministic": true,
+    "cudnn.benchmark": false
+  },
+  "resolution": [
+    256,
+    256
+  ],
+  "num_classes": 5,
+  "class_names": [
+    "Building",
+    "Land",
+    "Road",
+    "Vegetation",
+    "Water"
+  ],
+  "ignore_index": 255,
+  "batch_size": 8,
+  "max_epochs": 60,
+  "early_stopping": {
+    "monitor": "val_mIoU",
+    "mode": "max",
+    "patience": 15,
+    "rule": "stop after 15 consecutive epochs without val-mIoU improvement; keep best-val-mIoU checkpoint"
+  },
+  "loss": "CrossEntropyLoss(ignore_index=255), unweighted",
+  "optimizer": {
+    "name": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001
+  },
+  "scheduler": {
+    "name": "CosineAnnealingLR",
+    "T_max": 60,
+    "eta_min": 1e-05,
+    "step": "per epoch"
+  },
+  "augmentation": "train only: synchronised hflip p=0.5, vflip p=0.5, rot90 k in {1,2,3} p=0.5",
+  "data_order": "DataLoader shuffle with torch.Generator seeded 42 and a dedicated random.Random(42) augmentation stream, both re-created for each model -> identical batches/augmentations for both models",
+  "models": {
+    "baseline": "SegmentationUNet(base_ch=32, use_dilated_bottleneck=False): bottleneck = DoubleConv(256,512)",
+    "dilated": "SegmentationUNet(base_ch=32, use_dilated_bottleneck=True): bottleneck = ConvBNReLU 3x3 256->512, 4 parallel ConvBNReLU 3x3 512->128 (dilation=padding=1,2,4,8), concat 512, 1x1 ConvBNReLU 512->512"
+  },
+  "controlled_change": "only the bottleneck module differs; encoder, decoder, skips, head, data, optimiser, schedule identical",
+  "architecture": "4-stage U-Net encoder (32,64,128,256) of DoubleConv [Conv3x3(no bias)+BN+ReLU]x2, MaxPool2x2; bottleneck 512ch at 1/16 resolution; decoder ConvTranspose2d 2x2 s2 + concat skip + DoubleConv x4; 1x1 head",
+  "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "parameter_table": [
+    {
+      "block": "enc1",
+      "baseline": 10208,
+      "dilated": 10208,
+      "delta": 0
+    },
+    {
+      "block": "enc2",
+      "baseline": 55552,
+      "dilated": 55552,
+      "delta": 0
+    },
+    {
+      "block": "enc3",
+      "baseline": 221696,
+      "dilated": 221696,
+      "delta": 0
+    },
+    {
+      "block": "enc4",
+      "baseline": 885760,
+      "dilated": 885760,
+      "delta": 0
+    },
+    {
+      "block": "bottleneck",
+      "baseline": 3540992,
+      "dilated": 3804160,
+      "delta": 263168
+    },
+    {
+      "block": "up4",
+      "baseline": 2295040,
+      "dilated": 2295040,
+      "delta": 0
+    },
+    {
+      "block": "up3",
+      "baseline": 574080,
+      "dilated": 574080,
+      "delta": 0
+    },
+    {
+      "block": "up2",
+      "baseline": 143680,
+      "dilated": 143680,
+      "delta": 0
+    },
+    {
+      "block": "up1",
+      "baseline": 36000,
+      "dilated": 36000,
+      "delta": 0
+    },
+    {
+      "block": "head",
+      "baseline": 165,
+      "dilated": 165,
+      "delta": 0
+    },
+    {
+      "block": "TOTAL",
+      "baseline": 7763173,
+      "dilated": 8026341,
+      "delta": 263168
+    }
+  ],
+  "training_outcome": {
+    "baseline": {
+      "best_epoch": 15,
+      "best_val_miou": 0.5413967158515065,
+      "epochs_run": 30,
+      "stopped_early": true,
+      "train_time_s": 34.4,
+      "params": 7763173,
+      "checkpoint": "checkpoints\\baseline_best.pt"
+    },
+    "dilated": {
+      "best_epoch": 41,
+      "best_val_miou": 0.5671642015102334,
+      "epochs_run": 56,
+      "stopped_early": true,
+      "train_time_s": 68.9,
+      "params": 8026341,
+      "checkpoint": "checkpoints\\dilated_best.pt"
+    }
+  }
+}

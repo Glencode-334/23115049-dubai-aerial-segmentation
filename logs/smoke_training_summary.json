@@ -1,0 +1,20 @@
+{
+  "baseline": {
+    "best_epoch": 1,
+    "best_val_miou": 0.24385910069730424,
+    "epochs_run": 1,
+    "stopped_early": false,
+    "train_time_s": 3.8,
+    "params": 7763173,
+    "checkpoint": "checkpoints\\smoke\\baseline_best.pt"
+  },
+  "dilated": {
+    "best_epoch": 1,
+    "best_val_miou": 0.34191236426196153,
+    "epochs_run": 1,
+    "stopped_early": false,
+    "train_time_s": 1.8,
+    "params": 8026341,
+    "checkpoint": "checkpoints\\smoke\\dilated_best.pt"
+  }
+}

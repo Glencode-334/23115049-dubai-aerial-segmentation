@@ -1,0 +1,475 @@
+{
+  "dataset": "Semantic segmentation of aerial imagery (Humans in the Loop / MBRSC, Dubai), CC0",
+  "source": "kagglehub.dataset_download('humansintheloop/semantic-segmentation-of-aerial-imagery')",
+  "annotation": "Human-annotated RGB masks (no algorithm-generated pseudo ground truth used)",
+  "num_pairs": 72,
+  "pairing": "image_part_XXX.jpg <-> image_part_XXX.png within each tile; sample name TileN_part_XXX",
+  "classes": [
+    {
+      "id": 0,
+      "name": "Building",
+      "rgb": [
+        60,
+        16,
+        152
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Land",
+      "rgb": [
+        132,
+        41,
+        246
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Road",
+      "rgb": [
+        110,
+        193,
+        228
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Vegetation",
+      "rgb": [
+        254,
+        221,
+        58
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Water",
+      "rgb": [
+        226,
+        169,
+        41
+      ]
+    }
+  ],
+  "ignore": {
+    "index": 255,
+    "unlabeled_rgb": [
+      155,
+      155,
+      155
+    ],
+    "rule": "nearest palette colour by L1; if nearest is Unlabeled or L1 distance >= 45 -> 255",
+    "loss_and_metrics": "ignored in CrossEntropyLoss(ignore_index=255) and excluded from confusion matrices"
+  },
+  "note_classes_json": "The dataset's classes.json lists different hex colours from those in the PNG masks; the palette above is the one actually present in the masks.",
+  "observed_mask_colours": "Inspection of all 72 masks found exactly 7 RGB values: the 5 class colours, Unlabeled (155,155,155) and black (0,0,0) (~0.5% of pixels, tile borders). Black is >=228 L1 from every palette colour and is therefore mapped to 255 by the distance rule. 18 masks are palette-mode (P) PNGs and are converted to RGB before mapping.",
+  "split": {
+    "method": "all pairs sorted by (tile, file), shuffled with random.Random(42), cut 70/15/15",
+    "sizes": {
+      "train": 50,
+      "val": 10,
+      "test": 12
+    },
+    "leakage_warning": "split is random across tiles: train/val/test images come from the same tiles",
+    "files": {
+      "train": [
+        {
+          "name": "Tile6_part_005",
+          "image": "Tile 6/images/image_part_005.jpg",
+          "mask": "Tile 6/masks/image_part_005.png"
+        },
+        {
+          "name": "Tile3_part_001",
+          "image": "Tile 3/images/image_part_001.jpg",
+          "mask": "Tile 3/masks/image_part_001.png"
+        },
+        {
+          "name": "Tile4_part_004",
+          "image": "Tile 4/images/image_part_004.jpg",
+          "mask": "Tile 4/masks/image_part_004.png"
+        },
+        {
+          "name": "Tile6_part_002",
+          "image": "Tile 6/images/image_part_002.jpg",
+          "mask": "Tile 6/masks/image_part_002.png"
+        },
+        {
+          "name": "Tile1_part_008",
+          "image": "Tile 1/images/image_part_008.jpg",
+          "mask": "Tile 1/masks/image_part_008.png"
+        },
+        {
+          "name": "Tile3_part_003",
+          "image": "Tile 3/images/image_part_003.jpg",
+          "mask": "Tile 3/masks/image_part_003.png"
+        },
+        {
+          "name": "Tile2_part_007",
+          "image": "Tile 2/images/image_part_007.jpg",
+          "mask": "Tile 2/masks/image_part_007.png"
+        },
+        {
+          "name": "Tile4_part_007",
+          "image": "Tile 4/images/image_part_007.jpg",
+          "mask": "Tile 4/masks/image_part_007.png"
+        },
+        {
+          "name": "Tile6_part_008",
+          "image": "Tile 6/images/image_part_008.jpg",
+          "mask": "Tile 6/masks/image_part_008.png"
+        },
+        {
+          "name": "Tile1_part_005",
+          "image": "Tile 1/images/image_part_005.jpg",
+          "mask": "Tile 1/masks/image_part_005.png"
+        },
+        {
+          "name": "Tile5_part_001",
+          "image": "Tile 5/images/image_part_001.jpg",
+          "mask": "Tile 5/masks/image_part_001.png"
+        },
+        {
+          "name": "Tile5_part_007",
+          "image": "Tile 5/images/image_part_007.jpg",
+          "mask": "Tile 5/masks/image_part_007.png"
+        },
+        {
+          "name": "Tile5_part_008",
+          "image": "Tile 5/images/image_part_008.jpg",
+          "mask": "Tile 5/masks/image_part_008.png"
+        },
+        {
+          "name": "Tile6_part_004",
+          "image": "Tile 6/images/image_part_004.jpg",
+          "mask": "Tile 6/masks/image_part_004.png"
+        },
+        {
+          "name": "Tile2_part_008",
+          "image": "Tile 2/images/image_part_008.jpg",
+          "mask": "Tile 2/masks/image_part_008.png"
+        },
+        {
+          "name": "Tile7_part_004",
+          "image": "Tile 7/images/image_part_004.jpg",
+          "mask": "Tile 7/masks/image_part_004.png"
+        },
+        {
+          "name": "Tile4_part_003",
+          "image": "Tile 4/images/image_part_003.jpg",
+          "mask": "Tile 4/masks/image_part_003.png"
+        },
+        {
+          "name": "Tile7_part_003",
+          "image": "Tile 7/images/image_part_003.jpg",
+          "mask": "Tile 7/masks/image_part_003.png"
+        },
+        {
+          "name": "Tile8_part_006",
+          "image": "Tile 8/images/image_part_006.jpg",
+          "mask": "Tile 8/masks/image_part_006.png"
+        },
+        {
+          "name": "Tile7_part_009",
+          "image": "Tile 7/images/image_part_009.jpg",
+          "mask": "Tile 7/masks/image_part_009.png"
+        },
+        {
+          "name": "Tile6_part_009",
+          "image": "Tile 6/images/image_part_009.jpg",
+          "mask": "Tile 6/masks/image_part_009.png"
+        },
+        {
+          "name": "Tile8_part_008",
+          "image": "Tile 8/images/image_part_008.jpg",
+          "mask": "Tile 8/masks/image_part_008.png"
+        },
+        {
+          "name": "Tile5_part_004",
+          "image": "Tile 5/images/image_part_004.jpg",
+          "mask": "Tile 5/masks/image_part_004.png"
+        },
+        {
+          "name": "Tile6_part_003",
+          "image": "Tile 6/images/image_part_003.jpg",
+          "mask": "Tile 6/masks/image_part_003.png"
+        },
+        {
+          "name": "Tile3_part_006",
+          "image": "Tile 3/images/image_part_006.jpg",
+          "mask": "Tile 3/masks/image_part_006.png"
+        },
+        {
+          "name": "Tile7_part_002",
+          "image": "Tile 7/images/image_part_002.jpg",
+          "mask": "Tile 7/masks/image_part_002.png"
+        },
+        {
+          "name": "Tile3_part_008",
+          "image": "Tile 3/images/image_part_008.jpg",
+          "mask": "Tile 3/masks/image_part_008.png"
+        },
+        {
+          "name": "Tile1_part_009",
+          "image": "Tile 1/images/image_part_009.jpg",
+          "mask": "Tile 1/masks/image_part_009.png"
+        },
+        {
+          "name": "Tile3_part_002",
+          "image": "Tile 3/images/image_part_002.jpg",
+          "mask": "Tile 3/masks/image_part_002.png"
+        },
+        {
+          "name": "Tile8_part_002",
+          "image": "Tile 8/images/image_part_002.jpg",
+          "mask": "Tile 8/masks/image_part_002.png"
+        },
+        {
+          "name": "Tile6_part_007",
+          "image": "Tile 6/images/image_part_007.jpg",
+          "mask": "Tile 6/masks/image_part_007.png"
+        },
+        {
+          "name": "Tile3_part_005",
+          "image": "Tile 3/images/image_part_005.jpg",
+          "mask": "Tile 3/masks/image_part_005.png"
+        },
+        {
+          "name": "Tile8_part_001",
+          "image": "Tile 8/images/image_part_001.jpg",
+          "mask": "Tile 8/masks/image_part_001.png"
+        },
+        {
+          "name": "Tile3_part_007",
+          "image": "Tile 3/images/image_part_007.jpg",
+          "mask": "Tile 3/masks/image_part_007.png"
+        },
+        {
+          "name": "Tile7_part_007",
+          "image": "Tile 7/images/image_part_007.jpg",
+          "mask": "Tile 7/masks/image_part_007.png"
+        },
+        {
+          "name": "Tile1_part_007",
+          "image": "Tile 1/images/image_part_007.jpg",
+          "mask": "Tile 1/masks/image_part_007.png"
+        },
+        {
+          "name": "Tile5_part_005",
+          "image": "Tile 5/images/image_part_005.jpg",
+          "mask": "Tile 5/masks/image_part_005.png"
+        },
+        {
+          "name": "Tile7_part_006",
+          "image": "Tile 7/images/image_part_006.jpg",
+          "mask": "Tile 7/masks/image_part_006.png"
+        },
+        {
+          "name": "Tile2_part_001",
+          "image": "Tile 2/images/image_part_001.jpg",
+          "mask": "Tile 2/masks/image_part_001.png"
+        },
+        {
+          "name": "Tile6_part_006",
+          "image": "Tile 6/images/image_part_006.jpg",
+          "mask": "Tile 6/masks/image_part_006.png"
+        },
+        {
+          "name": "Tile3_part_004",
+          "image": "Tile 3/images/image_part_004.jpg",
+          "mask": "Tile 3/masks/image_part_004.png"
+        },
+        {
+          "name": "Tile4_part_001",
+          "image": "Tile 4/images/image_part_001.jpg",
+          "mask": "Tile 4/masks/image_part_001.png"
+        },
+        {
+          "name": "Tile2_part_002",
+          "image": "Tile 2/images/image_part_002.jpg",
+          "mask": "Tile 2/masks/image_part_002.png"
+        },
+        {
+          "name": "Tile1_part_001",
+          "image": "Tile 1/images/image_part_001.jpg",
+          "mask": "Tile 1/masks/image_part_001.png"
+        },
+        {
+          "name": "Tile8_part_004",
+          "image": "Tile 8/images/image_part_004.jpg",
+          "mask": "Tile 8/masks/image_part_004.png"
+        },
+        {
+          "name": "Tile5_part_002",
+          "image": "Tile 5/images/image_part_002.jpg",
+          "mask": "Tile 5/masks/image_part_002.png"
+        },
+        {
+          "name": "Tile8_part_005",
+          "image": "Tile 8/images/image_part_005.jpg",
+          "mask": "Tile 8/masks/image_part_005.png"
+        },
+        {
+          "name": "Tile7_part_005",
+          "image": "Tile 7/images/image_part_005.jpg",
+          "mask": "Tile 7/masks/image_part_005.png"
+        },
+        {
+          "name": "Tile3_part_009",
+          "image": "Tile 3/images/image_part_009.jpg",
+          "mask": "Tile 3/masks/image_part_009.png"
+        },
+        {
+          "name": "Tile4_part_008",
+          "image": "Tile 4/images/image_part_008.jpg",
+          "mask": "Tile 4/masks/image_part_008.png"
+        }
+      ],
+      "val": [
+        {
+          "name": "Tile5_part_009",
+          "image": "Tile 5/images/image_part_009.jpg",
+          "mask": "Tile 5/masks/image_part_009.png"
+        },
+        {
+          "name": "Tile5_part_006",
+          "image": "Tile 5/images/image_part_006.jpg",
+          "mask": "Tile 5/masks/image_part_006.png"
+        },
+        {
+          "name": "Tile6_part_001",
+          "image": "Tile 6/images/image_part_001.jpg",
+          "mask": "Tile 6/masks/image_part_001.png"
+        },
+        {
+          "name": "Tile2_part_004",
+          "image": "Tile 2/images/image_part_004.jpg",
+          "mask": "Tile 2/masks/image_part_004.png"
+        },
+        {
+          "name": "Tile8_part_007",
+          "image": "Tile 8/images/image_part_007.jpg",
+          "mask": "Tile 8/masks/image_part_007.png"
+        },
+        {
+          "name": "Tile7_part_008",
+          "image": "Tile 7/images/image_part_008.jpg",
+          "mask": "Tile 7/masks/image_part_008.png"
+        },
+        {
+          "name": "Tile5_part_003",
+          "image": "Tile 5/images/image_part_003.jpg",
+          "mask": "Tile 5/masks/image_part_003.png"
+        },
+        {
+          "name": "Tile4_part_006",
+          "image": "Tile 4/images/image_part_006.jpg",
+          "mask": "Tile 4/masks/image_part_006.png"
+        },
+        {
+          "name": "Tile8_part_009",
+          "image": "Tile 8/images/image_part_009.jpg",
+          "mask": "Tile 8/masks/image_part_009.png"
+        },
+        {
+          "name": "Tile8_part_003",
+          "image": "Tile 8/images/image_part_003.jpg",
+          "mask": "Tile 8/masks/image_part_003.png"
+        }
+      ],
+      "test": [
+        {
+          "name": "Tile1_part_006",
+          "image": "Tile 1/images/image_part_006.jpg",
+          "mask": "Tile 1/masks/image_part_006.png"
+        },
+        {
+          "name": "Tile1_part_002",
+          "image": "Tile 1/images/image_part_002.jpg",
+          "mask": "Tile 1/masks/image_part_002.png"
+        },
+        {
+          "name": "Tile1_part_003",
+          "image": "Tile 1/images/image_part_003.jpg",
+          "mask": "Tile 1/masks/image_part_003.png"
+        },
+        {
+          "name": "Tile7_part_001",
+          "image": "Tile 7/images/image_part_001.jpg",
+          "mask": "Tile 7/masks/image_part_001.png"
+        },
+        {
+          "name": "Tile2_part_003",
+          "image": "Tile 2/images/image_part_003.jpg",
+          "mask": "Tile 2/masks/image_part_003.png"
+        },
+        {
+          "name": "Tile2_part_005",
+          "image": "Tile 2/images/image_part_005.jpg",
+          "mask": "Tile 2/masks/image_part_005.png"
+        },
+        {
+          "name": "Tile2_part_009",
+          "image": "Tile 2/images/image_part_009.jpg",
+          "mask": "Tile 2/masks/image_part_009.png"
+        },
+        {
+          "name": "Tile4_part_002",
+          "image": "Tile 4/images/image_part_002.jpg",
+          "mask": "Tile 4/masks/image_part_002.png"
+        },
+        {
+          "name": "Tile4_part_005",
+          "image": "Tile 4/images/image_part_005.jpg",
+          "mask": "Tile 4/masks/image_part_005.png"
+        },
+        {
+          "name": "Tile4_part_009",
+          "image": "Tile 4/images/image_part_009.jpg",
+          "mask": "Tile 4/masks/image_part_009.png"
+        },
+        {
+          "name": "Tile1_part_004",
+          "image": "Tile 1/images/image_part_004.jpg",
+          "mask": "Tile 1/masks/image_part_004.png"
+        },
+        {
+          "name": "Tile2_part_006",
+          "image": "Tile 2/images/image_part_006.jpg",
+          "mask": "Tile 2/masks/image_part_006.png"
+        }
+      ]
+    }
+  },
+  "pixel_counts_256": {
+    "train": {
+      "Building": 337838,
+      "Land": 1512519,
+      "Road": 277726,
+      "Vegetation": 391243,
+      "Water": 729629,
+      "ignored_255": 27845
+    },
+    "val": {
+      "Building": 89038,
+      "Land": 295662,
+      "Road": 44113,
+      "Vegetation": 32992,
+      "Water": 179484,
+      "ignored_255": 14071
+    },
+    "test": {
+      "Building": 126105,
+      "Land": 422821,
+      "Road": 102733,
+      "Vegetation": 41843,
+      "Water": 81060,
+      "ignored_255": 11870
+    }
+  },
+  "transforms": {
+    "image": "PIL bilinear resize to 256x256 -> to_tensor -> Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))",
+    "mask": "PIL nearest resize to 256x256 -> nearest-palette index mapping",
+    "train_augmentation": "synchronised image+mask: hflip p=0.5, vflip p=0.5, rot90 by k in {1,2,3} (90/180/270) p=0.5; rot90/flip are exact pixel permutations (equivalent to nearest for masks)",
+    "val_test_augmentation": "none"
+  }
+}

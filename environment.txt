@@ -1,0 +1,14 @@
+Python: 3.10.0
+Platform: Windows-10-10.0.26300-SP0
+torch: 2.5.1+cu121
+torchvision: 0.20.1+cu121
+numpy: 1.26.4
+CUDA (torch build): 12.1
+cuDNN: 90100
+CUDA available: True
+GPU: NVIDIA GeForce RTX 4050 Laptop GPU
+NVIDIA driver: 592.82
+Pillow: 11.1.0
+matplotlib: 3.10.1
+pandas: 2.3.3
+kagglehub: 1.0.2
